@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
 * Студент: [Ruslan](https://up.htmlacademy.ru/react/6/user/1693173).
-* Наставник: `Неизвестно`.
+* Наставник: [Ruslan Malogulko](https://htmlacademy.ru/profile/id9728).
 
 ---
 
