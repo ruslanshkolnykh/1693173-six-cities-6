@@ -1,9 +1,15 @@
 import React from 'react';
 import PlaceItem from "../place-item/place-item";
-
-const itemAmount = [1, 2, 3, 4, 5];
+import PropTypes from 'prop-types';
 
 const MainPage = (props) => {
+  const {itemAmount} = props;
+  const itemArray = Array(itemAmount).fill(itemAmount);
+
+  // eslint-disable-next-line no-console
+  console.log(itemAmount);
+  // eslint-disable-next-line no-console
+  console.log(itemArray);
   return (<div className="page page--gray page--main">
     <header className="header">
       <div className="container">
@@ -87,7 +93,7 @@ const MainPage = (props) => {
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              {itemAmount.map((i) => <PlaceItem key={i} />)}
+              {itemArray.map(() => <PlaceItem key={Math.random()} />)}
             </div>
           </section>
           <div className="cities__right-section">
@@ -97,6 +103,10 @@ const MainPage = (props) => {
       </div>
     </main>
   </div>);
+};
+
+MainPage.propTypes = {
+  itemAmount: PropTypes.number.isRequired,
 };
 
 export default MainPage;
