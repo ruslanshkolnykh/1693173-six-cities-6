@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import PlaceItem from "../place-item/place-item";
 
+const itemAmount = [1, 2, 3, 4, 5];
+
 class MainPage extends Component {
   render() {
     return (<div className="page page--gray page--main">
@@ -86,7 +88,7 @@ class MainPage extends Component {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <PlaceItem />
+                {itemAmount.map((i) => <PlaceItem key={i} />)}
               </div>
             </section>
             <div className="cities__right-section">
