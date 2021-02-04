@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PlaceItem from "../place-item/place-item";
 
-const itemAmount = [1, 2, 3, 4, 5];
+const itemAmount = 5;
 
 class MainPage extends Component {
   render() {
