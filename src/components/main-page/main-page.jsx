@@ -1,7 +1,7 @@
 import React from 'react';
 import PlaceItem from "../place-item/place-item";
 
-const itemAmount = 5;
+const itemAmount = [1, 2, 3, 4, 5];
 
 const MainPage = (props) => {
   return (<div className="page page--gray page--main">
