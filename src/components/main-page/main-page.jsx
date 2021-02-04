@@ -6,10 +6,6 @@ const MainPage = (props) => {
   const {itemAmount} = props;
   const itemArray = Array(itemAmount).fill(itemAmount);
 
-  // eslint-disable-next-line no-console
-  console.log(itemAmount);
-  // eslint-disable-next-line no-console
-  console.log(itemArray);
   return (<div className="page page--gray page--main">
     <header className="header">
       <div className="container">
