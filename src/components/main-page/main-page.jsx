@@ -86,7 +86,7 @@ class MainPage extends Component {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {PlaceItem}
+                <PlaceItem />
               </div>
             </section>
             <div className="cities__right-section">
