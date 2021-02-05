@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 const MainPage = (props) => {
   const {itemAmount} = props;
-  const itemArray = Array(itemAmount).fill(itemAmount);
 
   return (<div className="page page--gray page--main">
     <header className="header">
@@ -89,7 +88,7 @@ const MainPage = (props) => {
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              {itemArray.map(() => <PlaceItem key={Math.random()} />)}
+              {Array(itemAmount).fill(Math.random()).map((i) => <PlaceItem key={i} />)}
             </div>
           </section>
           <div className="cities__right-section">
