@@ -88,7 +88,7 @@ const MainPage = (props) => {
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              {Array(itemAmount).fill(Math.random()).map((i) => <PlaceItem key={i} />)}
+              {Array(itemAmount).fill(itemAmount).map(() => <PlaceItem key={Math.random()} />)}
             </div>
           </section>
           <div className="cities__right-section">
