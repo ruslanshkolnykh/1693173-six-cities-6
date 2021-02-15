@@ -8,7 +8,7 @@ import Room from "../room/room";
 import NotFound from "../not-found/not-found";
 
 const App = (props) => {
-  const {itemAmount, offers, reviews} = props;
+  const {itemAmount, offers, reviews, favourOffers} = props;
 
   return (
     <BrowserRouter>
@@ -24,7 +24,7 @@ const App = (props) => {
         </Route>
         <Route exact path="/favourites">
           <Favourites
-            offers={offers}
+            offers={favourOffers}
           />
         </Route>
         <Route exact path="/offer/:id">
@@ -41,6 +41,7 @@ const App = (props) => {
 App.propTypes = {
   itemAmount: PropTypes.number.isRequired,
   offers: PropTypes.array.isRequired,
+  favourOffers: PropTypes.array.isRequired,
   reviews: PropTypes.array.isRequired,
 };
 
