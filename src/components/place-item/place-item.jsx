@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
 const PlaceItem = ({offer}) => {
-  const [, setUserMessage] = useState();
+  // const [, setUserMessage] = useState();
 
   return (
     <article className="cities__place-card place-card" >
