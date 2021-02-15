@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-const PlaceItem = ({offer}) => {
+const FavouritesLocationItem = ({offer}) => {
 
   return (
     <article className="cities__place-card place-card">
@@ -41,9 +41,9 @@ const PlaceItem = ({offer}) => {
   );
 };
 
-PlaceItem.propTypes = {
+FavouritesLocationItem.propTypes = {
   offer: PropTypes.object.isRequired,
 };
 
 
-export default PlaceItem;
+export default FavouritesLocationItem;

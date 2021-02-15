@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
 
-const Favourites = () => {
+const Favourites = ({offers}) => {
 
   return (<div className="page">
     <header className="header">
@@ -159,6 +160,10 @@ const Favourites = () => {
       </a>
     </footer>
   </div>);
+};
+
+Favourites.propTypes = {
+  offers: PropTypes.array.isRequired,
 };
 
 export default Favourites;

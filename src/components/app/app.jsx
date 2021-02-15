@@ -8,22 +8,27 @@ import Room from "../room/room";
 import NotFound from "../not-found/not-found";
 
 const App = (props) => {
-  const {itemAmount} = props;
+  const {itemAmount, offers, reviews} = props;
 
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <MainPage itemAmount={itemAmount} />
+          <MainPage
+            itemAmount={itemAmount}
+            offers={offers}
+          />
         </Route>
         <Route exact path="/login">
           <Login />
         </Route>
         <Route exact path="/favourites">
-          <Favourites />
+          <Favourites
+            offers={offers}
+          />
         </Route>
         <Route exact path="/offer/:id">
-          <Room />
+          <Room reviews={reviews}/>
         </Route>
         <Route>
           <NotFound />
@@ -35,6 +40,8 @@ const App = (props) => {
 
 App.propTypes = {
   itemAmount: PropTypes.number.isRequired,
+  offers: PropTypes.array.isRequired,
+  reviews: PropTypes.array.isRequired,
 };
 
 export default App;
