@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
+
 const PlaceItem = ({offer}) => {
-  // const [, setUserMessage] = useState();
+  const [, setState] = useState();
 
   return (
     <article className="cities__place-card place-card" >
@@ -12,7 +13,9 @@ const PlaceItem = ({offer}) => {
       </div> : ``}
 
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <Link to="/offer/:id">
+        <Link to="/offer/:id" onFocus={() =>{
+          setState(offer);
+        }}>
           <img className="place-card__image" src="img/apartment-01.jpg" width="260" height="200" alt="Place image"/>
         </Link>
       </div>
