@@ -8,7 +8,7 @@ const groupByCity = (arr = []) => {
     r[a.city] = r[a.city] || [];
     r[a.city].push(a);
     return r;
-  }, Object.create(null));
+  }, {});
   return result;
 };
 
