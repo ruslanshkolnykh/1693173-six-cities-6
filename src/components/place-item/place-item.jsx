@@ -8,7 +8,7 @@ const PlaceItem = ({offer}) => {
 
   return (
     <article className="cities__place-card place-card" >
-      {(offer.premium) ? <div className="place-card__mark">
+      {(offer.is_premium) ? <div className="place-card__mark">
         <span>Premium</span>
       </div> : ``}
 
@@ -34,7 +34,7 @@ const PlaceItem = ({offer}) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `${Math.floor(offer.rank) * 20}%`}}></span>
+            <span style={{width: `${Math.floor(offer.rating) * 20}%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
