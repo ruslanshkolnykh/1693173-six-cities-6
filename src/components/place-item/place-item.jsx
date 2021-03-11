@@ -13,7 +13,7 @@ const PlaceItem = ({offer}) => {
       </div> : ``}
 
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <Link to="/offer/:id" onFocus={() =>{
+        <Link to={`/offer/` + offer.id} onFocus={() =>{
           setState(offer);
         }}>
           <img className="place-card__image" src="img/apartment-01.jpg" width="260" height="200" alt="Place image"/>
@@ -39,7 +39,7 @@ const PlaceItem = ({offer}) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to="/offer/:id" onFocus={() =>{
+          <Link to={`/offer/` + offer.id} onFocus={() =>{
             setState(offer);
           }}>{offer.description}</Link>
         </h2>

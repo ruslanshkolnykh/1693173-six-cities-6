@@ -1,6 +1,9 @@
 import React, {useEffect, useRef} from "react";
 import leaflet from 'leaflet';
-import PropTypes from 'prop-types';
+import locationProps from '../props/location.props';
+import pointsProps from '../props/points.props';
+import PropTypes from "prop-types";
+import 'leaflet/dist/leaflet.css';
 
 const Map = ({city, points}) => {
   const mapRef = useRef();
@@ -8,8 +11,8 @@ const Map = ({city, points}) => {
   useEffect(() =>{
     mapRef.current = leaflet.map(`map`, {
       center: {
-        lat: city.lat,
-        lng: city.lng
+        lat: city.latitude,
+        lng: city.longitude
       },
       zoom: city.zoom
     });
@@ -27,8 +30,8 @@ const Map = ({city, points}) => {
       });
 
       leaflet.marker({
-        lat: point.lat,
-        lng: point.lng
+        lat: point.latitude,
+        lng: point.longitude
       },
       {
         icon: customIcon
@@ -43,21 +46,13 @@ const Map = ({city, points}) => {
   }, []);
 
   return (
-    <div id="map" style={{height: `500px`}} ref={mapRef}></div>
+    <div id="map" style={{height: `800px`}} ref={mapRef}></div>
   );
 };
 
 Map.propTypes = {
-  city: PropTypes.shape({
-    lat: PropTypes.number.isRequired,
-    lng: PropTypes.number.isRequired,
-    zoom: PropTypes.number.isRequired,
-  }),
-  points: PropTypes.arrayOf(PropTypes.shape({
-    lat: PropTypes.number.isRequired,
-    lng: PropTypes.number.isRequired,
-    title: PropTypes.number.isRequired,
-  }))
+  city: locationProps,
+  points: PropTypes.arrayOf(pointsProps).isRequired,
 };
 
 export default Map;
