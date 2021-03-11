@@ -6,9 +6,10 @@ import Login from '../login/login';
 import Favourites from "../favorites/favourites";
 import Room from "../room/room";
 import NotFound from "../not-found/not-found";
+import offersProps from "../props/offers.props";
 
 const App = (props) => {
-  const {itemAmount, offers, reviews, favourOffers} = props;
+  const {itemAmount, offers, reviews} = props;
 
   return (
     <BrowserRouter>
@@ -22,14 +23,18 @@ const App = (props) => {
         <Route exact path="/login">
           <Login />
         </Route>
-        <Route exact path="/favourites">
-          <Favourites
-            offers={favourOffers}
-          />
-        </Route>
-        <Route exact path="/offer/:id">
-          <Room reviews={reviews}/>
-        </Route>
+        <Route exact path="/favourites"
+          render={() => {
+            return (<Favourites offers={offers.filter((offer)=>offer.is_favorite)} />);
+          }
+          }
+        />
+        <Route exact path="/offer/:id/"
+          render={(properties) => {
+            return (<Room offer={offers.filter((offer)=>offer.id === parseInt(properties.match.params.id, 10))[0]} reviews={reviews}/>);
+          }
+          }
+        />
         <Route>
           <NotFound />
         </Route>
@@ -40,8 +45,7 @@ const App = (props) => {
 
 App.propTypes = {
   itemAmount: PropTypes.number.isRequired,
-  offers: PropTypes.array.isRequired,
-  favourOffers: PropTypes.array.isRequired,
+  offers: PropTypes.arrayOf(offersProps).isRequired,
   reviews: PropTypes.array.isRequired,
 };
 

@@ -1,8 +1,10 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import SendCommentForm from "../send-comment-form/send-comment-form";
+import offersProps from "../props/offers.props";
 
-const Room = () => {
+const Room = (props) => {
+  const {offer} = props;
 
   return (<div className="page">
     <header className="header">
@@ -284,6 +286,10 @@ const Room = () => {
       </div>
     </main>
   </div>);
+};
+
+Room.propTypes = {
+  offer: offersProps,
 };
 
 export default Room;

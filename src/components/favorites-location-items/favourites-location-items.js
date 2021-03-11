@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import FavouritesLocationGroup from "../favourites-location-group/favourites-location-group";
+import offersProps from "../props/offers.props";
 
 const groupByCity = (arr = []) => {
   let result = [];
   result = arr.reduce((r, a) => {
-    r[a.city] = r[a.city] || [];
-    r[a.city].push(a);
+    r[a.city.name] = r[a.city.name] || [];
+    r[a.city.name].push(a);
     return r;
   }, {});
   return result;
@@ -24,7 +25,7 @@ const FavouritesLocationItems = ({offers}) => {
 };
 
 FavouritesLocationItems.propTypes = {
-  offers: PropTypes.array.isRequired,
+  offers: PropTypes.arrayOf(offersProps).isRequired,
 };
 
 export default FavouritesLocationItems;

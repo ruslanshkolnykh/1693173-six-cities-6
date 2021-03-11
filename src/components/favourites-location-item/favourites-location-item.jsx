@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
+import offersProps from "../props/offers.props";
 
 const FavouritesLocationItem = ({offer}) => {
 
@@ -40,7 +40,7 @@ const FavouritesLocationItem = ({offer}) => {
 };
 
 FavouritesLocationItem.propTypes = {
-  offer: PropTypes.object.isRequired,
+  offer: offersProps,
 };
 
 

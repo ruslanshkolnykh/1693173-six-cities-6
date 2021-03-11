@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from "react-router-dom";
 import ItemList from "../item-list/item-list";
+import offersProps from "../props/offers.props";
 
 const MainPage = (props) => {
   const {offers} = props;
@@ -103,7 +104,7 @@ const MainPage = (props) => {
 
 MainPage.propTypes = {
   itemAmount: PropTypes.number.isRequired,
-  offers: PropTypes.array.isRequired,
+  offers: PropTypes.arrayOf(offersProps).isRequired,
 };
 
 export default MainPage;
