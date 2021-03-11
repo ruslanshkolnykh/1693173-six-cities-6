@@ -1,32 +1,25 @@
 import PropTypes from "prop-types";
+import hostProps from './host.props';
+import locationProps from './location.props';
 
 export default PropTypes.shape({
   city: PropTypes.shape({
-    location: PropTypes.shape({
-      latitude: PropTypes.number.isRequired,
-      longitude: PropTypes.number.isRequired,
-      zoom: PropTypes.number.isRequired,
-    }),
+    location: locationProps,
     name: PropTypes.string.isRequired,
   }).isRequired,
   description: PropTypes.string.isRequired,
   goods: PropTypes.array.isRequired,
-  host: PropTypes.shape({
-    avatar_url: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-    is_pro: PropTypes.bool.isRequired,
-    name: PropTypes.string.isRequired,
-  }).isRequired,
+  host: hostProps,
   id: PropTypes.number.isRequired,
   images: PropTypes.array.isRequired,
+  // eslint-disable-next-line camelcase
   is_favorite: PropTypes.bool.isRequired,
+  // eslint-disable-next-line camelcase
   is_premium: PropTypes.bool.isRequired,
-  location: PropTypes.shape({
-    latitude: PropTypes.number.isRequired,
-    longitude: PropTypes.number.isRequired,
-    zoom: PropTypes.number.isRequired,
-  }).isRequired,
+  location: locationProps,
+  // eslint-disable-next-line camelcase
   max_adults: PropTypes.number.isRequired,
+  // eslint-disable-next-line camelcase
   preview_image: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,

@@ -39,7 +39,9 @@ const PlaceItem = ({offer}) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{offer.description}</a>
+          <Link to="/offer/:id" onFocus={() =>{
+            setState(offer);
+          }}>{offer.description}</Link>
         </h2>
         <p className="place-card__type">{offer.type}</p>
       </div>
