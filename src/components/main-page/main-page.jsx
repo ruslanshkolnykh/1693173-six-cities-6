@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from "react-router-dom";
 import ItemList from "../item-list/item-list";
+import offersProps from "../props/offers.props";
+import Map from "../map/map";
+import {city} from "../../const";
 
 const MainPage = (props) => {
   const {offers} = props;
@@ -93,7 +96,16 @@ const MainPage = (props) => {
             </div>
           </section>
           <div className="cities__right-section">
-            <section className="cities__map map"></section>
+            <section className="cities__map map">
+              <Map city={city} points={offers.map((offer) =>{
+                const point = {
+                  latitude: offer.location.latitude,
+                  longitude: offer.location.longitude,
+                  title: offer.title,
+                };
+                return point;
+              })}/>
+            </section>
           </div>
         </div>
       </div>
@@ -103,7 +115,7 @@ const MainPage = (props) => {
 
 MainPage.propTypes = {
   itemAmount: PropTypes.number.isRequired,
-  offers: PropTypes.array.isRequired,
+  offers: PropTypes.arrayOf(offersProps).isRequired,
 };
 
 export default MainPage;

@@ -1,8 +1,10 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import SendCommentForm from "../send-comment-form/send-comment-form";
+import offersProps from "../props/offers.props";
 
-const Room = () => {
+const Room = (props) => {
+  const {offer} = props;
 
   return (<div className="page">
     <header className="header">
@@ -59,7 +61,7 @@ const Room = () => {
             </div>
             <div className="property__name-wrapper">
               <h1 className="property__name">
-                Beautiful &amp; luxurious studio at great location
+                {offer.title}
               </h1>
               <button className="property__bookmark-button button" type="button">
                 <svg className="property__bookmark-icon" width="31" height="33">
@@ -284,6 +286,10 @@ const Room = () => {
       </div>
     </main>
   </div>);
+};
+
+Room.propTypes = {
+  offer: offersProps,
 };
 
 export default Room;

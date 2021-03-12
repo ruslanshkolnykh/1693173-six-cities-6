@@ -8,12 +8,12 @@ const PlaceItem = ({offer}) => {
 
   return (
     <article className="cities__place-card place-card" >
-      {(offer.premium) ? <div className="place-card__mark">
+      {(offer.is_premium) ? <div className="place-card__mark">
         <span>Premium</span>
       </div> : ``}
 
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <Link to="/offer/:id" onFocus={() =>{
+        <Link to={`/offer/` + offer.id} onFocus={() =>{
           setState(offer);
         }}>
           <img className="place-card__image" src="img/apartment-01.jpg" width="260" height="200" alt="Place image"/>
@@ -34,12 +34,14 @@ const PlaceItem = ({offer}) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `${Math.floor(offer.rank) * 20}%`}}></span>
+            <span style={{width: `${Math.floor(offer.rating) * 20}%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{offer.description}</a>
+          <Link to={`/offer/` + offer.id} onFocus={() =>{
+            setState(offer);
+          }}>{offer.description}</Link>
         </h2>
         <p className="place-card__type">{offer.type}</p>
       </div>

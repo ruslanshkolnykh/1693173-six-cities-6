@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import FavouritesLocationItem from "../favourites-location-item/favourites-location-item";
+import offersProps from "../props/offers.props";
 
 const FavouritesLocationGroup = ({offerGroup, offerArray}) => {
 
@@ -22,8 +23,7 @@ const FavouritesLocationGroup = ({offerGroup, offerArray}) => {
 
 FavouritesLocationGroup.propTypes = {
   offerGroup: PropTypes.string.isRequired,
-  offerArray: PropTypes.array.isRequired
+  offerArray: PropTypes.arrayOf(offersProps).isRequired
 };
-
 
 export default FavouritesLocationGroup;

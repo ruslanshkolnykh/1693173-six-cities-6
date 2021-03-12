@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import FavouritesLocationItems from "../favorites-location-items/favourites-location-items";
+import offersProps from "../props/offers.props";
 
 const Favourites = ({offers}) => {
 
@@ -62,7 +63,7 @@ const Favourites = ({offers}) => {
 };
 
 Favourites.propTypes = {
-  offers: PropTypes.array.isRequired,
+  offers: PropTypes.arrayOf(offersProps).isRequired,
 };
 
 export default Favourites;
