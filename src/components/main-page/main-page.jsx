@@ -4,10 +4,11 @@ import {Link} from "react-router-dom";
 import ItemList from "../item-list/item-list";
 import offersProps from "../props/offers.props";
 import Map from "../map/map";
-import {city} from "../../const";
+import LocationsList from "../locations-list/locations-list";
+import cityProp from "../props/city.props";
 
 const MainPage = (props) => {
-  const {offers} = props;
+  const {offers, city} = props;
 
   return (<div className="page page--gray page--main">
     <header className="header">
@@ -38,36 +39,7 @@ const MainPage = (props) => {
       <div className="tabs">
         <section className="locations container">
           <ul className="locations__list tabs__list">
-            <li className="locations__item">
-              <a className="locations__item-link tabs__item" href="#">
-                <span>Paris</span>
-              </a>
-            </li>
-            <li className="locations__item">
-              <a className="locations__item-link tabs__item" href="#">
-                <span>Cologne</span>
-              </a>
-            </li>
-            <li className="locations__item">
-              <a className="locations__item-link tabs__item" href="#">
-                <span>Brussels</span>
-              </a>
-            </li>
-            <li className="locations__item">
-              <a className="locations__item-link tabs__item tabs__item--active">
-                <span>Amsterdam</span>
-              </a>
-            </li>
-            <li className="locations__item">
-              <a className="locations__item-link tabs__item" href="#">
-                <span>Hamburg</span>
-              </a>
-            </li>
-            <li className="locations__item">
-              <a className="locations__item-link tabs__item" href="#">
-                <span>Dusseldorf</span>
-              </a>
-            </li>
+            <LocationsList city={city} />
           </ul>
         </section>
       </div>
@@ -97,7 +69,7 @@ const MainPage = (props) => {
           </section>
           <div className="cities__right-section">
             <section className="cities__map map">
-              <Map city={city} points={offers.map((offer) =>{
+              <Map city={city.location} points={offers.map((offer) =>{
                 const point = {
                   latitude: offer.location.latitude,
                   longitude: offer.location.longitude,
@@ -116,6 +88,7 @@ const MainPage = (props) => {
 MainPage.propTypes = {
   itemAmount: PropTypes.number.isRequired,
   offers: PropTypes.arrayOf(offersProps).isRequired,
+  city: cityProp,
 };
 
 export default MainPage;
