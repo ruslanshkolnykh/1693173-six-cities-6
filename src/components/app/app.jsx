@@ -6,20 +6,10 @@ import Login from '../login/login';
 import Favourites from "../favorites/favourites";
 import Room from "../room/room";
 import NotFound from "../not-found/not-found";
-import offersProps from "../props/offers.props";
-
-// временный город
-const tempCity = {
-  "location": {
-    "latitude": 52.370216,
-    "longitude": 4.895168,
-    "zoom": 10
-  },
-  "name": `Amsterdam`
-};
+// import offersProps from "../props/offers.props";
 
 const App = (props) => {
-  const {itemAmount, offers, reviews} = props;
+  const {itemAmount, reviews, offers, city} = props;
 
   return (
     <BrowserRouter>
@@ -28,7 +18,7 @@ const App = (props) => {
           <MainPage
             itemAmount={itemAmount}
             offers={offers}
-            city={tempCity}
+            city={city}
           />
         </Route>
         <Route exact path="/login">
@@ -56,8 +46,9 @@ const App = (props) => {
 
 App.propTypes = {
   itemAmount: PropTypes.number.isRequired,
-  offers: PropTypes.arrayOf(offersProps).isRequired,
+  // offers: PropTypes.arrayOf(offersProps).isRequired,
   reviews: PropTypes.array.isRequired,
+  // store: PropTypes.Object.is
 };
 
 export default App;

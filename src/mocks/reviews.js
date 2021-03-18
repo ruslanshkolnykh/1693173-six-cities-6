@@ -1,50 +1,38 @@
 export default [
   {
-    "comment": `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
-    "date": `2019-05-08T14:13:56.569Z`,
     "id": 1,
-    "rating": 4,
     "user": {
-      "avatar_url": `img/1.png`,
-      "id": 4,
+      "id": 15,
       "is_pro": false,
-      "name": `Max`
-    }
+      "name": `Kendall`,
+      "avatar_url": `https://assets.htmlacademy.ru/intensives/javascript-3/avatar/6.jpg`
+    },
+    "rating": 3,
+    "comment": `We loved it so much, the house, the veiw, the location just great.. Highly reccomend :)`,
+    "date": `2021-02-12T08:04:28.647Z`
   },
   {
-    "comment": `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
-    "date": `2019-05-08T14:13:56.569Z`,
     "id": 2,
-    "rating": 4,
     "user": {
-      "avatar_url": `img/1.png`,
-      "id": 4,
-      "is_pro": false,
-      "name": `Max`
-    }
+      "id": 14,
+      "is_pro": true,
+      "name": `Corey`,
+      "avatar_url": `https://assets.htmlacademy.ru/intensives/javascript-3/avatar/5.jpg`
+    },
+    "rating": 4,
+    "comment": `The deluxe room was a quite comfortable one with all the adequate facilities. The only thing that made me feel uncomfortable was the rude behavior of an impolite staff at the reception desk.`,
+    "date": `2021-02-12T08:04:28.647Z`
   },
   {
-    "comment": `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
-    "date": `2019-05-08T14:13:56.569Z`,
     "id": 3,
-    "rating": 4,
     "user": {
-      "avatar_url": `img/1.png`,
-      "id": 4,
-      "is_pro": false,
-      "name": `Max`
-    }
-  },
-  {
-    "comment": `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
-    "date": `2019-05-08T14:13:56.569Z`,
-    "id": 4,
-    "rating": 4,
-    "user": {
-      "avatar_url": `img/1.png`,
-      "id": 4,
-      "is_pro": false,
-      "name": `Max`
-    }
+      "id": 18,
+      "is_pro": true,
+      "name": `Sophie`,
+      "avatar_url": `https://assets.htmlacademy.ru/intensives/javascript-3/avatar/9.jpg`
+    },
+    "rating": 2,
+    "comment": `I stayed here for one night and it was an unpleasant experience.`,
+    "date": `2021-02-12T08:04:28.647Z`
   }
 ];

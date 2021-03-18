@@ -3,8 +3,8 @@ import {startCity, cityList} from '../const';
 import Offers from '../mocks/offers';
 
 const initialState = {
-  offers: {},
-  city: cityList.map((city) => city.name === startCity)[0]
+  offers: [],
+  city: cityList.filter((city) => city.name === startCity)[0],
 };
 
 const reducer = (state = initialState, action) => {
@@ -12,13 +12,14 @@ const reducer = (state = initialState, action) => {
     case ActionType.CHANGE_CITY:
       return {
         ...state,
-        city: action.payload
+        city: cityList.filter((city) => city.name === action.payload)[0],
+        offers: Offers.filter((offer) => offer.city.name === action.payload)
       };
 
     case ActionType.FILL_OFFERS:
       return {
         ...state,
-        offers: Offers.map((offer) => offer.city.name === action.payload.name)
+        offers: Offers.filter((offer) => offer.city.name === action.payload)
       };
   }
   return state;

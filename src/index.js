@@ -7,16 +7,26 @@ import {createStore} from 'redux';
 import {reducer} from './redux/reducer';
 import {Provider} from 'react-redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
+import {ActionType} from "./redux/action";
 
 const store = createStore(reducer, composeWithDevTools());
+store.dispatch({type: ActionType.CHANGE_CITY, payload: 'Amsterdam'});
 
 ReactDOM.render(
     <Provider store ={store}>
       <App
         itemAmount={10}
-        offers={offers}
+        offers={store.getState().offers}
         reviews={reviews}
+        city={store.getState().city}
       />
     </Provider>,
     document.querySelector(`#root`)
 );
+
+store.subscribe(()=>{
+  console.log(store.getState());
+  console.log(store.getState().offers);
+  console.log(offers);
+});
+
