@@ -5,7 +5,6 @@ import Login from '../login/login';
 import Favourites from "../favorites/favourites";
 import Room from "../room/room";
 import NotFound from "../not-found/not-found";
-// import offersProps from "../props/offers.props";
 import {useSelector} from "react-redux";
 
 const App = () => {
