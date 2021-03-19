@@ -1,24 +1,22 @@
 import React from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import MainPage from '../main-page/main-page';
 import Login from '../login/login';
 import Favourites from "../favorites/favourites";
 import Room from "../room/room";
 import NotFound from "../not-found/not-found";
 // import offersProps from "../props/offers.props";
+import {useSelector} from "react-redux";
 
-const App = (props) => {
-  const {itemAmount, reviews, offers, city} = props;
+const App = () => {
+  const {offers, reviews} = useSelector((state) => state);
 
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
           <MainPage
-            itemAmount={itemAmount}
-            offers={offers}
-            city={city}
           />
         </Route>
         <Route exact path="/login">
@@ -44,11 +42,19 @@ const App = (props) => {
   );
 };
 
-App.propTypes = {
-  itemAmount: PropTypes.number.isRequired,
-  // offers: PropTypes.arrayOf(offersProps).isRequired,
-  reviews: PropTypes.array.isRequired,
-  // store: PropTypes.Object.is
-};
+// App.propTypes = {
+//   itemAmount: PropTypes.number.isRequired,
+//   // offers: PropTypes.arrayOf(offersProps).isRequired,
+//   reviews: PropTypes.array.isRequired,
+//   // store: PropTypes.Object.is
+// };
+
+// const mapStateToProps = function (state) {
+//   return {
+//     itemsAmount: state.itemsAmount,
+//     offers: state.offers,
+//     city: state.city
+//   };
+// };
 
 export default App;

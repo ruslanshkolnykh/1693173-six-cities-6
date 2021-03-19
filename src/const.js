@@ -1,4 +1,6 @@
-const startCity = `Amsterdam`;
+const startCity = `Paris`;
+
+const startItemsAmount = 10;
 
 const cityList = [
   {
@@ -51,4 +53,4 @@ const cityList = [
   },
 ];
 
-export {startCity, cityList};
+export {startCity, cityList, startItemsAmount};

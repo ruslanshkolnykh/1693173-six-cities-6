@@ -1,14 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Link} from "react-router-dom";
 import ItemList from "../item-list/item-list";
-import offersProps from "../props/offers.props";
 import Map from "../map/map";
 import LocationsList from "../locations-list/locations-list";
-import cityProp from "../props/city.props";
+import {useSelector} from "react-redux";
 
-const MainPage = (props) => {
-  const {offers, city} = props;
+const MainPage = () => {
+  const {offers, city} = useSelector((state) => state);
 
   return (<div className="page page--gray page--main">
     <header className="header">
@@ -47,7 +45,7 @@ const MainPage = (props) => {
         <div className="cities__places-container container">
           <section className="cities__places places">
             <h2 className="visually-hidden">Places</h2>
-            <b className="places__found">312 places to stay in Amsterdam</b>
+            <b className="places__found">{offers.length} places to stay in {city.name}</b>
             <form className="places__sorting" action="#" method="get">
               <span className="places__sorting-caption">Sort by</span>
               <span className="places__sorting-type" tabIndex="0">
@@ -85,10 +83,5 @@ const MainPage = (props) => {
   </div>);
 };
 
-MainPage.propTypes = {
-  itemAmount: PropTypes.number.isRequired,
-  offers: PropTypes.arrayOf(offersProps).isRequired,
-  city: cityProp,
-};
 
 export default MainPage;

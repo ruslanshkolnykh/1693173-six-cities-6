@@ -16,7 +16,7 @@ const PlaceItem = ({offer}) => {
         <Link to={`/offer/` + offer.id} onFocus={() =>{
           setState(offer);
         }}>
-          <img className="place-card__image" src="img/apartment-01.jpg" width="260" height="200" alt="Place image"/>
+          <img className="place-card__image" src={offer.preview_image} width="260" height="200" alt="Place image"/>
         </Link>
       </div>
       <div className="place-card__info">
