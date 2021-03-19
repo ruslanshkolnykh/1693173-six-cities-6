@@ -15,10 +15,6 @@ store.dispatch(ActionCreator.changeCity(startCity));
 ReactDOM.render(
     <Provider store ={store}>
       <App
-        // itemAmount={10}
-        // offers={store.getState().offers}
-        // reviews={reviews}
-        // city={store.getState().city}
       />
     </Provider>,
     document.querySelector(`#root`)
