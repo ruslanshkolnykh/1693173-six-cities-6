@@ -1,6 +1,5 @@
 import React from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
-// import PropTypes from "prop-types";
 import MainPage from '../main-page/main-page';
 import Login from '../login/login';
 import Favourites from "../favorites/favourites";
