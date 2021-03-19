@@ -9,9 +9,6 @@ import {ActionCreator} from "./redux/action";
 import {startCity} from "./const";
 
 const store = createStore(reducer, composeWithDevTools());
-// store.subscribe(()=>{
-//   console.log(store.getState());
-// });
 
 store.dispatch(ActionCreator.changeCity(startCity));
 
