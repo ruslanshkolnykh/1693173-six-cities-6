@@ -40,19 +40,5 @@ const App = () => {
   );
 };
 
-// App.propTypes = {
-//   itemAmount: PropTypes.number.isRequired,
-//   // offers: PropTypes.arrayOf(offersProps).isRequired,
-//   reviews: PropTypes.array.isRequired,
-//   // store: PropTypes.Object.is
-// };
-
-// const mapStateToProps = function (state) {
-//   return {
-//     itemsAmount: state.itemsAmount,
-//     offers: state.offers,
-//     city: state.city
-//   };
-// };
 
 export default App;
