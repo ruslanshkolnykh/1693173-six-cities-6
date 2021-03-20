@@ -10,7 +10,7 @@ const LocationItem = ({city, active}) => {
 
   return (<>
     <li className="locations__item">
-      <Link className={`locations__item-link tabs__item tabs__item${active ? '--active' : ''}`} to="#" onClick={(evt) => {
+      <Link className={`locations__item-link tabs__item tabs__item${active ? `--active` : ``}`} to=`#` onClick={(evt) => {
         evt.preventDefault();
         dispatch(ActionCreator.changeCity(city.name));
       }
