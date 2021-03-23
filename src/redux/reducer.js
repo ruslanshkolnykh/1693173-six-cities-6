@@ -29,6 +29,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         itemsAmount: action.payload
       };
+
+    case ActionType.LOAD_OFFERS:
+      return {
+        ...state,
+        offers: action.payload
+      };
   }
   return state;
 };

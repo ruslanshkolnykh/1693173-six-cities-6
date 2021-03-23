@@ -1,7 +1,8 @@
 export const ActionType = {
   CHANGE_CITY: `changeCity`,
   FILL_OFFERS: `fillOffers`,
-  CHANGE_ITEMS_AMOUNT: `changeItemsAmount`
+  CHANGE_ITEMS_AMOUNT: `changeItemsAmount`,
+  LOAD_OFFERS: `loadOffers`
 };
 
 export const ActionCreator = {
@@ -16,5 +17,9 @@ export const ActionCreator = {
   changeItemsAmount: (amount) => ({
     type: ActionType.CHANGE_ITEMS_AMOUNT,
     payload: amount
+  }),
+  loadOffers: (offers) => ({
+    type: ActionType.LOAD_OFFERS,
+    payload: offers
   }),
 };
