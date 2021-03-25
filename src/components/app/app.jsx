@@ -1,40 +1,46 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Switch, Route, Router as BrowserRouter} from 'react-router-dom';
 import MainPage from '../main-page/main-page';
 import Login from '../login/login';
 import Favourites from "../favorites/favourites";
 import Room from "../room/room";
 import NotFound from "../not-found/not-found";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import browserHistory from "../../browser-history";
 import PrivateRoute from "../private-route/private-route";
+import {fetchOffersList} from "../../redux/api-actions";
+import LoadingScreen from "../loading/loading";
 
 const App = () => {
-  const {offers, reviews} = useSelector((state) => state);
+  const {offers, reviews, isDataLoaded} = useSelector((state) => state);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!isDataLoaded) {
+      dispatch(fetchOffersList());
+    }
+  }, [isDataLoaded]);
+
+  if (!isDataLoaded) {
+    return (
+      <LoadingScreen />
+    );
+  }
 
   return (
     <BrowserRouter history={browserHistory}>
       <Switch>
-        <PrivateRoute exact path="/"
-          render={() => {
-            return (
-              <MainPage
-
-              />
-            );
-          }}
-        />
-        {/* <Route exact path="/">*/}
-        {/*  <MainPage></MainPage>*/}
-        {/* </Route>*/}
+        <Route exact path="/">
+          <MainPage></MainPage>
+        </Route>
         <Route exact path="/login">
           <Login />
         </Route>
-        <Route exact path="/favourites"
+        <PrivateRoute exact path="/favourites"
           render={() => {
             return (<Favourites offers={offers.filter((offer)=>offer.is_favorite)} />);
-          }
-          }
+          }}
         />
         <Route exact path="/offer/:id/"
           render={(properties) => {

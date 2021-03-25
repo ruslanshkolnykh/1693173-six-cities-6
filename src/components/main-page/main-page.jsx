@@ -1,30 +1,14 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom";
 import ItemList from "../item-list/item-list";
 import Map from "../map/map";
 import LocationsList from "../locations-list/locations-list";
-import {useSelector, useDispatch} from "react-redux";
-import LoadingScreen from '../loading/loading';
-import {fetchOffersList} from "../../redux/api-actions";
+import {useSelector} from "react-redux";
 
 
 const MainPage = () => {
-  const {offers, city, isDataLoaded} = useSelector((state) => state);
+  const {offers, city} = useSelector((state) => state);
   const offersFiltered = offers.filter((offer) => offer.city.name === city.name);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (!isDataLoaded) {
-      dispatch(fetchOffersList());
-    }
-  }, [isDataLoaded]);
-
-  if (!isDataLoaded) {
-    return (
-      <LoadingScreen />
-    );
-  }
-
 
   return (<div className="page page--gray page--main">
     <header className="header">
@@ -38,11 +22,11 @@ const MainPage = () => {
           <nav className="header__nav">
             <ul className="header__nav-list">
               <li className="header__nav-item user">
-                <a className="header__nav-link header__nav-link--profile" href="#">
+                <Link className="header__nav-link header__nav-link--profile" to="/favourites">
                   <div className="header__avatar-wrapper user__avatar-wrapper">
                   </div>
                   <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>

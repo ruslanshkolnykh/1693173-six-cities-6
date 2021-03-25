@@ -1,10 +1,11 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import PropTypes from "prop-types";
 import FavouritesLocationItems from "../favorites-location-items/favourites-location-items";
-import offersProps from "../props/offers.props";
+import {useSelector} from "react-redux";
 
-const Favourites = ({offers}) => {
+const Favourites = () => {
+  const st = useSelector((state) => state);
+  const offersFiltered = st.offers.filter((offer) => offer.is_favorite);
 
   return (<div className="page">
     <header className="header">
@@ -18,24 +19,24 @@ const Favourites = ({offers}) => {
           <nav className="header__nav">
             <ul className="header__nav-list">
               <li className="header__nav-item user">
-                <a className="header__nav-link header__nav-link--profile" href="#">
+                <Link className="header__nav-link header__nav-link--profile" to="#">
                   <div className="header__avatar-wrapper user__avatar-wrapper">
                   </div>
                   <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
         </div>
       </div>
     </header>
-    {(offers.length > 0) ?
+    {(offersFiltered.length > 0) ?
       <main className="page__main page__main--favorites">
         <div className="page__favorites-container container">
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
-              <FavouritesLocationItems offers={offers}/>
+              <FavouritesLocationItems offers={offersFiltered}/>
             </ul>
           </section>
         </div>
@@ -62,8 +63,5 @@ const Favourites = ({offers}) => {
   </div>);
 };
 
-Favourites.propTypes = {
-  offers: PropTypes.arrayOf(offersProps).isRequired,
-};
 
 export default Favourites;
