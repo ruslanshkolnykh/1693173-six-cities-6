@@ -1,12 +1,30 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
 import ItemList from "../item-list/item-list";
 import Map from "../map/map";
 import LocationsList from "../locations-list/locations-list";
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
+import LoadingScreen from '../loading/loading';
+import {fetchOffersList} from "../../redux/api-actions";
+
 
 const MainPage = () => {
-  const {offers, city} = useSelector((state) => state);
+  const {offers, city, isDataLoaded} = useSelector((state) => state);
+  const offersFiltered = offers.filter((offer) => offer.city.name === city.name);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!isDataLoaded) {
+      dispatch(fetchOffersList());
+    }
+  }, [isDataLoaded]);
+
+  if (!isDataLoaded) {
+    return (
+      <LoadingScreen />
+    );
+  }
+
 
   return (<div className="page page--gray page--main">
     <header className="header">
@@ -45,7 +63,7 @@ const MainPage = () => {
         <div className="cities__places-container container">
           <section className="cities__places places">
             <h2 className="visually-hidden">Places</h2>
-            <b className="places__found">{offers.length} places to stay in {city.name}</b>
+            <b className="places__found">{offersFiltered.length} places to stay in {city.name}</b>
             <form className="places__sorting" action="#" method="get">
               <span className="places__sorting-caption">Sort by</span>
               <span className="places__sorting-type" tabIndex="0">
@@ -62,12 +80,12 @@ const MainPage = () => {
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              {<ItemList offers={offers}/>}
+              {<ItemList offers={offersFiltered}/>}
             </div>
           </section>
           <div className="cities__right-section">
             <section className="cities__map map">
-              <Map city={city.location} points={offers.map((offer) =>{
+              <Map city={city.location} points={offersFiltered.map((offer) =>{
                 const point = {
                   latitude: offer.location.latitude,
                   longitude: offer.location.longitude,
@@ -82,6 +100,5 @@ const MainPage = () => {
     </main>
   </div>);
 };
-
 
 export default MainPage;

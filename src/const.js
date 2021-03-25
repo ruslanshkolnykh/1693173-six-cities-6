@@ -2,6 +2,11 @@ const startCity = `Paris`;
 
 const startItemsAmount = 10;
 
+const AuthorizationStatus = {
+  AUTH: `AUTH`,
+  NO_AUTH: `NO_AUTH`,
+};
+
 const cityList = [
   {
     "location": {
@@ -53,4 +58,11 @@ const cityList = [
   },
 ];
 
-export {startCity, cityList, startItemsAmount};
+const AppRoute = {
+  LOGIN: `/login`,
+  FAVOURITES: `/favourites`,
+  OFFER: `/offer/:id`,
+  MAIN: `/`
+};
+
+export {startCity, cityList, startItemsAmount, AuthorizationStatus, AppRoute};
