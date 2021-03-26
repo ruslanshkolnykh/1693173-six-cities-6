@@ -69,7 +69,7 @@ const MainPage = () => {
           </section>
           <div className="cities__right-section">
             <section className="cities__map map">
-              <Map city={city.location} points={offersFiltered.map((offer) =>{
+              <Map key={Math.random()} city={city.location} points={offersFiltered.map((offer) =>{
                 const point = {
                   latitude: offer.location.latitude,
                   longitude: offer.location.longitude,
