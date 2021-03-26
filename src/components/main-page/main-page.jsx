@@ -5,8 +5,10 @@ import Map from "../map/map";
 import LocationsList from "../locations-list/locations-list";
 import {useSelector} from "react-redux";
 
+
 const MainPage = () => {
   const {offers, city} = useSelector((state) => state);
+  const offersFiltered = offers.filter((offer) => offer.city.name === city.name);
 
   return (<div className="page page--gray page--main">
     <header className="header">
@@ -20,11 +22,11 @@ const MainPage = () => {
           <nav className="header__nav">
             <ul className="header__nav-list">
               <li className="header__nav-item user">
-                <a className="header__nav-link header__nav-link--profile" href="#">
+                <Link className="header__nav-link header__nav-link--profile" to="/favourites">
                   <div className="header__avatar-wrapper user__avatar-wrapper">
                   </div>
                   <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -45,7 +47,7 @@ const MainPage = () => {
         <div className="cities__places-container container">
           <section className="cities__places places">
             <h2 className="visually-hidden">Places</h2>
-            <b className="places__found">{offers.length} places to stay in {city.name}</b>
+            <b className="places__found">{offersFiltered.length} places to stay in {city.name}</b>
             <form className="places__sorting" action="#" method="get">
               <span className="places__sorting-caption">Sort by</span>
               <span className="places__sorting-type" tabIndex="0">
@@ -62,12 +64,12 @@ const MainPage = () => {
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              {<ItemList offers={offers}/>}
+              {<ItemList offers={offersFiltered}/>}
             </div>
           </section>
           <div className="cities__right-section">
             <section className="cities__map map">
-              <Map city={city.location} points={offers.map((offer) =>{
+              <Map key={Math.random()} city={city.location} points={offersFiltered.map((offer) =>{
                 const point = {
                   latitude: offer.location.latitude,
                   longitude: offer.location.longitude,
@@ -82,6 +84,5 @@ const MainPage = () => {
     </main>
   </div>);
 };
-
 
 export default MainPage;
