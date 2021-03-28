@@ -2,6 +2,8 @@ import React, {useRef} from 'react';
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import {login} from '../../redux/api-actions';
+import {NameSpace} from "../../redux/root-reducer";
+import Header from "../header/header";
 
 const Login = () => {
   const st = useSelector((state) => state);
@@ -21,28 +23,7 @@ const Login = () => {
   };
 
   return (<div className="page page--gray page--login">
-    <header className="header">
-      <div className="container">
-        <div className="header__wrapper">
-          <div className="header__left">
-            <Link className="header__logo-link" to="/">
-              <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
-            </Link>
-          </div>
-          <nav className="header__nav">
-            <ul className="header__nav-list">
-              <li className="header__nav-item user">
-                <a className="header__nav-link header__nav-link--profile" href="#">
-                  <div className="header__avatar-wrapper user__avatar-wrapper">
-                  </div>
-                  <span className="header__login">Sign in</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
+    <Header />
 
     <main className="page__main page__main--login">
       <div className="page__login-container container">
@@ -78,9 +59,9 @@ const Login = () => {
         </section>
         <section className="locations locations--login locations--current">
           <div className="locations__item">
-            <a className="locations__item-link" href="#">
-              <span>{st.city.name}</span>
-            </a>
+            <Link className="locations__item-link" to="/">
+              <span>{st[NameSpace.APP].city.name}</span>
+            </Link>
           </div>
         </section>
       </div>

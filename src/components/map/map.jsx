@@ -1,8 +1,8 @@
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useRef} from 'react';
 import leaflet from 'leaflet';
 import locationProps from '../props/location.props';
 import pointsProps from '../props/points.props';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import 'leaflet/dist/leaflet.css';
 
 const Map = ({city, points}) => {

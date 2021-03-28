@@ -18,12 +18,6 @@ const reducer = (state = initialState, action) => {
         city: cityList.filter((city) => city.name === action.payload)[0],
       };
 
-    case ActionType.FILL_OFFERS:
-      return {
-        ...state,
-        offers: state.offers.filter((offer) => offer.city.name === action.payload)
-      };
-
     case ActionType.CHANGE_ITEMS_AMOUNT:
       return {
         ...state,
