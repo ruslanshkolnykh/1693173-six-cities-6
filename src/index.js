@@ -6,9 +6,7 @@ import {reducer} from './redux/reducer';
 import {Provider} from 'react-redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import {ActionCreator} from "./redux/action";
-// import {startCity} from "./const";
 import thunk from "redux-thunk";
-// import {checkAuth} from "./redux/api-actions";
 import {AuthorizationStatus} from "./const";
 import {createAPI} from "./api/api";
 import {redirect} from "./redux/middleware/redirect";
@@ -24,8 +22,6 @@ const store = createStore(
         applyMiddleware(redirect)
     )
 );
-
-// store.dispatch(checkAuth());
 
 ReactDOM.render(
     <Provider store ={store}>

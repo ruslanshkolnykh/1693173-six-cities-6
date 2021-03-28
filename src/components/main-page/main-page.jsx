@@ -64,12 +64,12 @@ const MainPage = () => {
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              {<ItemList offers={offersFiltered}/>}
+              <ItemList offers={offersFiltered}/>
             </div>
           </section>
           <div className="cities__right-section">
             <section className="cities__map map">
-              <Map key={Math.random()} city={city.location} points={offersFiltered.map((offer) =>{
+              <Map key={city.name} city={city.location} points={offersFiltered.map((offer) =>{
                 const point = {
                   latitude: offer.location.latitude,
                   longitude: offer.location.longitude,

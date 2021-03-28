@@ -10,6 +10,7 @@ import browserHistory from "../../browser-history";
 import PrivateRoute from "../private-route/private-route";
 import {fetchOffersList} from "../../redux/api-actions";
 import LoadingScreen from "../loading/loading";
+import MainEmpty from "../main-empty/main-empty";
 
 const App = () => {
   const {offers, reviews, isDataLoaded} = useSelector((state) => state);
@@ -32,7 +33,7 @@ const App = () => {
     <BrowserRouter history={browserHistory}>
       <Switch>
         <Route exact path="/">
-          <MainPage></MainPage>
+          {offers.length > 0 ? <MainPage /> : <MainEmpty />}
         </Route>
         <Route exact path="/login">
           <Login />
