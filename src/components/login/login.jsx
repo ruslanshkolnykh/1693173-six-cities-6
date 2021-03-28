@@ -9,7 +9,6 @@ const Login = () => {
   const loginRef = useRef();
   const passwordRef = useRef();
 
-  // const history = useHistory();
   const dispatch = useDispatch();
 
   const handleSubmit = (evt) => {
