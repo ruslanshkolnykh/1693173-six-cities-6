@@ -1,19 +1,14 @@
 export const ActionType = {
   CHANGE_CITY: `changeCity`,
-  FILL_OFFERS: `fillOffers`,
   CHANGE_ITEMS_AMOUNT: `changeItemsAmount`,
-  LOAD_OFFERS: `loadOffers`,
-  REQUIRED_AUTHORIZATION: `requiredAuthorization`,
-  REDIRECT_TO_ROUTE: `redirectToRoute`,
+  LOAD_OFFERS: `data/loadOffers`,
+  REQUIRED_AUTHORIZATION: `user/requiredAuthorization`,
+  REDIRECT_TO_ROUTE: `app/redirectToRoute`,
 };
 
 export const ActionCreator = {
   changeCity: (cityProp) => ({
     type: ActionType.CHANGE_CITY,
-    payload: cityProp
-  }),
-  fillOffers: (cityProp) => ({
-    type: ActionType.FILL_OFFERS,
     payload: cityProp
   }),
   changeItemsAmount: (amount) => ({
