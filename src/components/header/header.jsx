@@ -1,11 +1,19 @@
 import React from 'react';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {NameSpace} from "../../redux/root-reducer";
 import {Link} from "react-router-dom";
+import {logout} from "../../redux/api-actions";
 
 const Header = () => {
   const user = useSelector((state) => state[NameSpace.USER]);
 
+  const dispatch = useDispatch();
+
+  const handleOnClick = (evt) => {
+    evt.preventDefault();
+
+    dispatch(logout());
+  };
   return (
     <>
       <header className="header">
@@ -25,6 +33,11 @@ const Header = () => {
                     <span className="header__user-name user__name">{user.email}</span>
                   </Link>
                 </li>
+                <li>
+                  <a href="#" onClick={handleOnClick}>
+                    <img src="img/logout.png" width="20px" height="20px"/>
+                  </a>
+                </li>
               </ul>
             </nav>
           </div>
@@ -33,6 +46,5 @@ const Header = () => {
     </>
   );
 };
-
 
 export default Header;

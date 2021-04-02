@@ -16,6 +16,7 @@ import {NameSpace} from "../../redux/root-reducer";
 const App = () => {
   const {offers, isDataLoaded} = useSelector((state) => state[NameSpace.DATA]);
   const {reviews} = useSelector((state) => state[NameSpace.APP]);
+  const user = useSelector((state) => state[NameSpace.USER]);
 
   const dispatch = useDispatch();
 
@@ -38,7 +39,7 @@ const App = () => {
           {offers.length > 0 ? <MainPage /> : <MainEmpty />}
         </Route>
         <Route exact path="/login">
-          <Login />
+          {user.authorizationStatus === `NO_AUTH` ? <Login /> : <MainPage />}
         </Route>
         <PrivateRoute exact path="/favourites"
           render={() => {

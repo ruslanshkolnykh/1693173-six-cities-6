@@ -10,6 +10,7 @@ import thunk from "redux-thunk";
 import {AuthorizationStatus} from "./const";
 import {createAPI} from "./api/api";
 import {redirect} from "./redux/middleware/redirect";
+import {checkAuth} from "./redux/api-actions";
 
 const api = createAPI(
     () => store.dispatch(ActionCreator.requiredAuthorization(AuthorizationStatus.NO_AUTH))
@@ -22,6 +23,8 @@ const store = createStore(
         applyMiddleware(redirect)
     )
 );
+
+store.dispatch(checkAuth());
 
 ReactDOM.render(
     <Provider store ={store}>

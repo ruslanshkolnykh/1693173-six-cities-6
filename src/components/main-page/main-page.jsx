@@ -13,6 +13,7 @@ const MainPage = () => {
 
   const offersFiltered = offers.filter((offer) => offer.city.name === city.name);
 
+
   return (<div className="page page--gray page--main">
     <Header />
 
