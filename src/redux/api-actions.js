@@ -15,6 +15,7 @@ export const checkAuth = () => (dispatch, _getState, api) => (
 export const logout = () => (dispatch, _getState, api) => (
   api.get(AppRoute.LOGIN)
     .then(() => dispatch(ActionCreator.requiredAuthorization(AuthorizationStatus.NO_AUTH)))
+    .then(() => dispatch(ActionCreator.cleanUserInfo()))
     .catch(() => {})
 );
 
@@ -22,4 +23,11 @@ export const login = ({login: email, password}) => (dispatch, _getState, api) =>
   api.post(AppRoute.LOGIN, {email, password})
     .then(() => dispatch(ActionCreator.requiredAuthorization(AuthorizationStatus.AUTH)))
     .then(() => dispatch(ActionCreator.redirectToRoute(AppRoute.FAVOURITES)))
+);
+
+export const fetchUserData = () => (dispatch, _getState, api) => (
+  api.get(`https://6.react.pages.academy/six-cities/login`)
+    .then(({data}) => {
+      dispatch(ActionCreator.loadUserInfo(data));
+    })
 );

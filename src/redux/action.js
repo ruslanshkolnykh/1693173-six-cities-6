@@ -3,7 +3,9 @@ export const ActionType = {
   CHANGE_ITEMS_AMOUNT: `changeItemsAmount`,
   LOAD_OFFERS: `data/loadOffers`,
   REQUIRED_AUTHORIZATION: `user/requiredAuthorization`,
+  LOAD_USER_INFO: `user/loadUserInfo`,
   REDIRECT_TO_ROUTE: `app/redirectToRoute`,
+  CLEAN_USER_INFO: `user/cleanUserInfo`
 };
 
 export const ActionCreator = {
@@ -27,4 +29,12 @@ export const ActionCreator = {
     type: ActionType.REDIRECT_TO_ROUTE,
     payload: url
   }),
+  loadUserInfo: (userInfo) => ({
+    type: ActionType.LOAD_USER_INFO,
+    payload: userInfo
+  }),
+  cleanUserInfo: (userInfo) => ({
+    type: ActionType.CLEAN_USER_INFO,
+    payload: userInfo
+  })
 };

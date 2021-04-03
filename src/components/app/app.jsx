@@ -8,7 +8,7 @@ import NotFound from "../not-found/not-found";
 import {useDispatch, useSelector} from "react-redux";
 import browserHistory from "../../browser-history";
 import PrivateRoute from "../private-route/private-route";
-import {fetchOffersList} from "../../redux/api-actions";
+import {fetchOffersList, fetchUserData} from "../../redux/api-actions";
 import LoadingScreen from "../loading/loading";
 import MainEmpty from "../main-empty/main-empty";
 import {NameSpace} from "../../redux/root-reducer";
@@ -25,6 +25,12 @@ const App = () => {
       dispatch(fetchOffersList());
     }
   }, [isDataLoaded]);
+
+  useEffect(() => {
+    if (user.authorizationStatus === `AUTH`) {
+      dispatch(fetchUserData());
+    }
+  }, [user.authorizationStatus === `AUTH`]);
 
   if (!isDataLoaded) {
     return (
